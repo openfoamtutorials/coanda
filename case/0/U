@@ -1,0 +1,57 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  plus                                  |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volVectorField;
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (0 0 0);
+
+boundaryField
+{
+	fan_outlet
+	{
+        type            fixedValue;
+        value           uniform (10 0 0);
+	}
+
+    inlet
+    {
+        type            freestream;
+        freestreamValue $internalField;
+    }
+
+    outlet
+    {
+        type            freestream;
+        freestreamValue $internalField;
+    }
+
+    walls
+    {
+        type            noSlip;
+    }
+
+    wedge0
+    {
+        type            wedge;
+    }
+
+    wedge1
+    {
+        type            wedge;
+    }
+}
+
+// ************************************************************************* //

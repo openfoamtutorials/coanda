@@ -1,0 +1,39 @@
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      changeDictionaryDict;
+}
+
+boundary
+{
+    "wedge.*"
+    {
+        type            wedge;
+    	physicalType	wedge;
+	}
+    inlet
+    {
+        type patch;
+        physicalType patch;
+    }
+    outlet
+    {
+        type patch;
+        physicalType patch;
+    }
+    walls
+    {
+        type wall;
+        physicalType wall;
+    }
+    fan_outlet
+    {
+        type patch;
+        physicalType patch;
+    }
+}
+
