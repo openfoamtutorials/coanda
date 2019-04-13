@@ -12,6 +12,5 @@ for f in folders:
     if isnum and float(f) != 0:
         os.system("rm -r case/" + f)
 os.system("rm main.msh")
-os.system("rm case/0/p")
 os.system("rm -r case/constant/polyMesh")
 
